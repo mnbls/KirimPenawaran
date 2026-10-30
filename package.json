@@ -1,16 +1,59 @@
 {
   "name": "kirim-penawaran",
+  "productName": "Kirim Penawaran",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "description": "Aplikasi lokal untuk menghubungi calon klien lewat WhatsApp Desktop/Web, dikirim manual oleh pengguna.",
+  "author": "mnbls",
+  "main": "desktop/main.cjs",
   "engines": {
     "node": ">=18"
   },
   "scripts": {
-    "start": "node server.mjs"
+    "start": "node server.mjs",
+    "desktop": "electron .",
+    "dist": "electron-builder --win"
   },
   "dependencies": {
     "exceljs": "^4.4.0"
+  },
+  "build": {
+    "appId": "id.kirimpenawaran.desktop",
+    "productName": "Kirim Penawaran",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "server.mjs",
+      "lib.mjs",
+      "index.html",
+      "desktop/**",
+      "build/icon.png",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "artifactName": "Kirim-Penawaran-Setup-${version}.exe"
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.2.0",
+    "electron-builder": "^26.18.0"
   }
 }
