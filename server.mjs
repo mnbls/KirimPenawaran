@@ -11,7 +11,7 @@ import * as lib from './lib.mjs';
 const FOLDER = path.dirname(fileURLToPath(import.meta.url));
 const FOLDER_DATA = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : path.join(FOLDER, 'data');
 const FILE_DATA = path.join(FOLDER_DATA, 'kontak.json');
-const FOLDER_PROPOSAL = path.join(FOLDER, 'proposal');
+const FOLDER_PROPOSAL = process.env.PROPOSAL_DIR ? path.resolve(process.env.PROPOSAL_DIR) : path.join(FOLDER, 'proposal');
 const PORT = Number(process.env.PORT) || 3838;
 const BATAS_EXCEL = 25 * 1024 * 1024;
 const BATAS_PDF = 50 * 1024 * 1024;
