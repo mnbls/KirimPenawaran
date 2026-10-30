@@ -29,6 +29,22 @@ Biarkan jendela hitamnya tetap terbuka selama memakai aplikasi. Tutup jendela it
 
 Cara manual: `npm install` lalu `node server.mjs`. Untuk memakai port lain: `set PORT=4000` sebelum menjalankan.
 
+## Aplikasi desktop (Windows)
+
+Selain lewat browser, aplikasi ini bisa dipasang sebagai aplikasi desktop Windows: jendela sendiri, tanpa jendela hitam,
+dengan ikon di desktop dan Start Menu.
+
+- **Memasang**: jalankan `Kirim-Penawaran-Setup-1.0.0.exe` dari folder `dist/` (hasil build, lihat di bawah). Windows
+  SmartScreen bisa memperingatkan karena installer belum ditandatangani; klik "More info" lalu "Run anyway".
+- **Data** (status, catatan, template, setelan, dan PDF proposal) disimpan di `%APPDATA%\Kirim Penawaran\` pada subfolder
+  `data` dan `proposal`. Ini **terpisah** dari versi browser (`start.bat`), dan tidak ikut terhapus saat aplikasi di-uninstall.
+- **WhatsApp**: link WhatsApp dibuka oleh Windows (WhatsApp Desktop, atau browser bawaan untuk WhatsApp Web). Hanya link
+  `whatsapp://` dan `https://web.whatsapp.com/` yang boleh dibuka dari jendela aplikasi.
+- **Hanya satu jendela**: membuka aplikasi untuk kedua kalinya akan memunculkan jendela yang sudah ada.
+- **Membangun sendiri**: `npm install`, lalu `npm run dist` (hasil di `dist/`). `npm run desktop` menjalankan versi desktop
+  langsung tanpa installer. Electron dan electron-builder hanya dipakai untuk membungkus aplikasi (devDependencies);
+  dependensi aplikasinya tetap `exceljs`.
+
 ## Cara pakai
 
 1. **Upload daftar klien.** Di bagian 1, klik "Upload Excel / CSV". Tabel klien muncul.
@@ -135,6 +151,8 @@ index.html        tampilan
 data/kontak.json  status, catatan, template, setelan (dibuat otomatis)
 proposal/         file PDF proposal
 start.bat         pemasang dan peluncur
+desktop/main.cjs  pembungkus aplikasi desktop (Electron)
+build/icon.png    ikon aplikasi desktop
 ```
 
 ## Pemecahan masalah
