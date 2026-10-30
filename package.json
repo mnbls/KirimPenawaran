@@ -1,0 +1,16 @@
+{
+  "name": "kirim-penawaran",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Aplikasi lokal untuk menghubungi calon klien lewat WhatsApp Desktop/Web, dikirim manual oleh pengguna.",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  }
+}
